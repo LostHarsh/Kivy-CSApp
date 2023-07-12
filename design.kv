@@ -1,0 +1,379 @@
+
+
+ScreenManagement:
+    PreSplash:
+    LoginScreen:
+    SecondScreen:
+
+<PreSplash>:
+    name: "pre-splash"
+
+    MDScreen:
+        MDFloatLayout:
+            md_bg_color: 226/255, 0, 48/255, 1
+
+            Image:
+                source: "logo.jpg"
+                size_hint: .33, .33
+                pos_hint: {"center_x": .5, "center_y": .55}
+                canvas.before:
+                    Color:
+                        rgb: 1, 1, 1, 1
+                    Ellipse:
+                        size: 130, 130
+                        pos: 110, 250
+
+            MDLabel:
+                text: "Imech Industry"
+                pos_hint: {"center_x": .5, "center_y": .2}
+                halign: "center"
+                theme_text_color: "Custom"
+                text_color: 1, 1, 1, 1
+                font_size: "30sp"
+                font_name: "Poppins-SemiBold.ttf"
+
+            MDLabel:
+                text: "Gearing to Brighter Future"
+                pos_hint: {"center_x": .5, "center_y": .15}
+                halign: "center"
+                theme_text_color: "Custom"
+                text_color: 1, 1, 1, 1
+                font_size: "13sp"
+                font_name: "Poppins-Regular.ttf"
+
+<LoginScreen>:
+    name: "login_screen"
+
+    MDScreen:
+        name: "login"
+        MDFloatLayout:
+            md_bg_color: 1, 1, 1, 1
+
+            MDIconButton:
+                icon: "chevron-left"
+                user_font_size: "35sp"
+                pos_hint: {"center_y": .945}
+
+            MDLabel:
+                text: "Back"
+                font_size: "18sp"
+                font_name: "Poppins-Regular.ttf"
+                pos_hint: {"center_x": .615, "center_y": .945}
+
+            Image:
+                source: "logo.jpg"
+                size_hint: .37, .37
+                pos_hint: {"center_x": .29, "center_y": .8}
+
+            MDLabel:
+                text: "Proceed with your"
+                font_size: "22sp"
+                font_name: "Poppins-Medium.ttf"
+                color: 120/255, 120/255, 120/255, 1
+                pos_hint: {"center_x": .6, "center_y": .65}
+
+            MDLabel:
+                text: "Login"
+                font_size: "28sp"
+                font_name: "Poppins-SemiBold.ttf"
+                pos_hint: {"center_x": .6, "center_y": .58}
+
+            MDFloatLayout:
+                size_hint: .79, .08
+                pos_hint: {"center_x": .5, "center_y": .42}
+
+                MDLabel:
+                    text: "Username"
+                    font_size: "14sp"
+                    font_name: "Assets/Poppins-Medium.ttf"
+                    pos_hint: {"center_x": .5, "center_y": .9}
+
+                TextInput:
+                    id: username_field
+                    size_hint_y: .75
+                    font_name: "Poppins-Regular.ttf"
+                    pos_hint: {"center_x": .49, "center_y": .4}
+                    background_color: 0, 0, 0, 0
+                    cursor_color: 0, 0, 0, 1
+                    cursor_width: "2sp"
+                    foreground_color: 120/255, 120/255, 120/255, 1
+                    font_size: "17sp"
+                    multiline: False
+
+                Image:
+                    source: "user.png"
+                    pos_hint: {"center_x": .94, "center_y": .5}
+                    size_hint: .5, .5
+
+                MDFloatLayout:
+                    pos_hint: {"center_x": .5, "center_y": 0}
+                    size_hint_y: .03
+                    md_bg_color: 120/255, 120/255, 120/255, 1
+
+            MDFloatLayout:
+                size_hint: .79, .08
+                pos_hint: {"center_x": .5, "center_y": .28}
+
+                MDLabel:
+                    text: "Password"
+                    font_size: "14sp"
+                    font_name: "Poppins-Medium.ttf"
+                    pos_hint: {"center_x": .5, "center_y": .9}
+
+                TextInput:
+                    id: password_field
+                    size_hint_y: .75
+                    font_name: "Poppins-Regular.ttf"
+                    pos_hint: {"center_x": .49, "center_y": .4}
+                    background_color: 0, 0, 0, 0
+                    cursor_color: 0, 0, 0, 1
+                    cursor_width: "2sp"
+                    font_size: "17sp"
+                    multiline: False
+                    password: True
+
+                Image:
+                    source: "key.png"
+                    pos_hint: {"center_x": .94, "center_y": .5}
+                    size_hint: .3, .3
+
+                MDFloatLayout:
+                    pos_hint: {"center_x": .5, "center_y": 0}
+                    size_hint_y: .03
+                    md_bg_color: 120/255, 120/255, 120/255, 1
+
+            Button:
+                text: "Login"
+                background_color: 0, 0, 0, 0
+                font_name: "Poppins-Medium.ttf"
+                size_hint: .79, .08
+                pos_hint: {"center_x": .5, "center_y": .15}
+                on_release:
+                    app.on_submit(username_field.text, password_field.text)
+
+                canvas.before:
+                    Color:
+                        rgb: 226/225, 0, 48/225, 1
+
+                    RoundedRectangle:
+                        size: self.size
+                        pos: self.pos
+                        radius: [2]
+
+<SecondScreen>:
+    name: "second_screen"
+    MDScreen:
+        MDBoxLayout:
+            orientation: "vertical"
+            md_bg_color: .93, .93, .93,1
+            MDTopAppBar:
+                elevation:1
+                title:"I Mech Industries"
+                md_bg_color: .13, .16, .19,1
+                opposite_colors: True
+
+            MDBoxLayout:
+                orientation: "vertical"
+                size_hint_x: .95
+                pos_hint: {"center_x": 0.5}
+                MDGridLayout:
+                    rows: 2
+                    padding: {10, 5, 10 ,5}
+                    size_hint: 1, 1
+                    MDLabel:
+                        text: "Row 1 Label"
+                        size_hint_y: None
+                        height: "30dp"
+                        font_size: "14sp"
+                        font_name: "Poppins-SemiBold.ttf"
+                    RoundedGridLayout:
+                        cols: 2
+                        padding: "10dp"
+
+                        canvas.before:
+                            Color:
+                                rgba: .80,.80,.80,1
+                            RoundedRectangle:
+                                pos: self.pos
+                                size: self.size
+                                radius: [10, 10, 10, 10]
+                        MDAnchorLayout:
+                            size_hint_x:0.4
+                            orientation : 'vertical'
+                            md_bg_color: .80,.80,.80,1
+                            spacing : 10
+                            padding : 5
+                            MDRectangleFlatIconButton:
+                                text: "Button 1"
+                                icon: "android"
+                                on_release: app.button_click(self.text)
+                                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                                font_name: "Poppins-Regular.ttf"
+                                line_width: 1.25
+                                font_size: "15sp"
+                                size_hint: None, None
+                                size: "200dp", "200dp"
+                                theme_text_color: "Custom"
+                                text_color: 0, .68, .71, 1
+                                line_color: 0, .68, .71, 1
+                                icon_color: 0, .68, .71, 1
+
+                        MDAnchorLayout:
+                            size_hint_x:0.4
+                            orientation : 'vertical'
+                            md_bg_color: .80,.80,.80,1
+                            spacing : 10
+                            padding : 5
+                            MDRectangleFlatIconButton:
+                                text: "Button 2"
+                                icon: "android"
+                                on_release: app.button_click(self.text)
+                                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                                font_name: "Poppins-Regular.ttf"
+                                line_width: 1.25
+                                font_size: "15sp"
+                                size_hint: None, None
+                                size: "200dp", "200dp"
+                                theme_text_color: "Custom"
+                                text_color: 0, .68, .71, 1
+                                line_color: 0, .68, .71, 1
+                                icon_color: 0, .68, .71, 1
+            MDBoxLayout:
+                orientation: "vertical"
+                size_hint_x: .95
+                pos_hint: {"center_x": 0.5}
+                MDGridLayout:
+                    rows: 2
+                    padding: {10, 5, 10 ,5}
+                    size_hint: 1, 1
+                    MDLabel:
+                        text: "Row 2 Label"
+                        size_hint_y: None
+                        height: "30dp"
+                        font_size: "14sp"
+                        font_name: "Poppins-SemiBold.ttf"
+                    RoundedGridLayout:
+                        cols: 2
+                        padding: "10dp"
+
+                        canvas.before:
+                            Color:
+                                rgba: .80,.80,.80,1
+                            RoundedRectangle:
+                                pos: self.pos
+                                size: self.size
+                                radius: [10, 10, 10, 10]
+                        MDAnchorLayout:
+                            size_hint_x:0.4
+                            orientation : 'vertical'
+                            md_bg_color: .80,.80,.80,1
+                            spacing : 10
+                            padding : 5
+                            MDRectangleFlatIconButton:
+                                text: "Button 3"
+                                icon: "android"
+                                on_release: app.button_click(self.text)
+                                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                                font_name: "Poppins-Regular.ttf"
+                                line_width: 1.25
+                                font_size: "15sp"
+                                size_hint: None, None
+                                size: "200dp", "200dp"
+                                theme_text_color: "Custom"
+                                text_color: 0, .68, .71, 1
+                                line_color: 0, .68, .71, 1
+                                icon_color: 0, .68, .71, 1
+
+                        MDAnchorLayout:
+                            size_hint_x:0.4
+                            orientation : 'vertical'
+                            md_bg_color: .80,.80,.80,1
+                            spacing : 10
+                            padding : 5
+                            MDRectangleFlatIconButton:
+                                text: "Button 4"
+                                icon: "android"
+                                on_release: app.button_click(self.text)
+                                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                                font_name: "Poppins-Regular.ttf"
+                                line_width: 1.25
+                                font_size: "15sp"
+                                size_hint: None, None
+                                size: "200dp", "200dp"
+                                theme_text_color: "Custom"
+                                text_color: 0, .68, .71, 1
+                                line_color: 0, .68, .71, 1
+                                icon_color: 0, .68, .71, 1
+            MDBoxLayout:
+                orientation: "vertical"
+                size_hint_x: .95
+                pos_hint: {"center_x": 0.5}
+                MDGridLayout:
+                    rows: 2
+                    padding: {10, 5, 10 ,5}
+                    size_hint: 1, 1
+                    MDLabel:
+                        text: "Row 3 Label"
+                        size_hint_y: None
+                        height: "30dp"
+                        font_size: "14sp"
+                        font_name: "Poppins-SemiBold.ttf"
+                    RoundedGridLayout:
+                        cols: 2
+                        padding: "10dp"
+
+                        canvas.before:
+                            Color:
+                                rgba: .80,.80,.80,1
+                            RoundedRectangle:
+                                pos: self.pos
+                                size: self.size
+                                radius: [10, 10, 10, 10]
+                        MDAnchorLayout:
+                            size_hint_x:0.4
+                            orientation : 'vertical'
+                            md_bg_color: .80,.80,.80,1
+                            spacing : 10
+                            padding : 5
+                            MDRectangleFlatIconButton:
+                                text: "Button 5"
+                                icon: "android"
+                                on_release: app.button_click(self.text)
+                                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                                font_name: "Poppins-Regular.ttf"
+                                line_width: 1.25
+                                font_size: "15sp"
+                                size_hint: None, None
+                                size: "200dp", "200dp"
+                                theme_text_color: "Custom"
+                                text_color: 0, .68, .71, 1
+                                line_color: 0, .68, .71, 1
+                                icon_color: 0, .68, .71, 1
+
+                        MDAnchorLayout:
+                            size_hint_x:0.4
+                            orientation : 'vertical'
+                            md_bg_color: .80,.80,.80,1
+                            spacing : 10
+                            padding : 5
+                            MDRectangleFlatIconButton:
+                                text: "Button 6"
+                                icon: "android"
+                                on_release: app.button_click(self.text)
+                                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                                font_name: "Poppins-Regular.ttf"
+                                line_width: 1.25
+                                font_size: "15sp"
+                                size_hint: None, None
+                                size: "200dp", "200dp"
+                                theme_text_color: "Custom"
+                                text_color: 0, .68, .71, 1
+                                line_color: 0, .68, .71, 1
+                                icon_color: 0, .68, .71, 1
+
+
+
+
+
+
+
